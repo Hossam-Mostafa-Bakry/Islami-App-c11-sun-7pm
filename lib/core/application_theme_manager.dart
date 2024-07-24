@@ -47,5 +47,8 @@ class ApplicationThemeManager {
         fontWeight: FontWeight.w400,
       ),
     ),
+    dividerTheme: const DividerThemeData(
+      color: primaryColor,
+    ),
   );
 }
