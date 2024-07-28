@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app_c11_sun_7pm/moduls/hadeth/hadeth_view.dart';
-import 'package:islami_app_c11_sun_7pm/moduls/quran/quran_view.dart';
-import 'package:islami_app_c11_sun_7pm/moduls/radio/radio_view.dart';
-import 'package:islami_app_c11_sun_7pm/moduls/settings/settings_view.dart';
-import 'package:islami_app_c11_sun_7pm/moduls/tasbeh/tasbeh_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '/moduls/hadeth/hadeth_view.dart';
+import '/moduls/quran/quran_view.dart';
+import '/moduls/radio/radio_view.dart';
+import '/moduls/settings/settings_view.dart';
+import '/moduls/tasbeh/tasbeh_view.dart';
 
 class LayOutView extends StatefulWidget {
   static const String routeName = "LayOut";
@@ -26,6 +28,8 @@ class _LayOutViewState extends State<LayOutView> {
 
   @override
   Widget build(BuildContext context) {
+    var lang = AppLocalizations.of(context)!;
+
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -34,7 +38,9 @@ class _LayOutViewState extends State<LayOutView> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("إسلامي"),
+          title: Text(
+            lang.islami,
+          ),
         ),
         body: screensList[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -43,36 +49,36 @@ class _LayOutViewState extends State<LayOutView> {
             selectedIndex = index;
             setState(() {});
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icons/quran_icn.png"),
               ),
-              label: "Home",
+              label: lang.quran,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icons/hadeth_icn.png"),
               ),
-              label: "Home",
+              label: lang.hadith,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icons/sebha_icn.png"),
               ),
-              label: "Home",
+              label: lang.tasbeh,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icons/radio_icn.png"),
               ),
-              label: "Home",
+              label: lang.radio,
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
               ),
-              label: "Settings",
+              label: lang.settings,
             ),
           ],
         ),
