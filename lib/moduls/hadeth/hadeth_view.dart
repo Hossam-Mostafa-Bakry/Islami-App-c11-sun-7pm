@@ -69,6 +69,7 @@ class _HadethViewState extends State<HadethView> {
       );
 
       dataList.add(hadithData);
+      setState(() {});
 
       // print(singleHadeth);
     }
